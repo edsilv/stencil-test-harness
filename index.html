@@ -13,10 +13,12 @@
 
     <iiif-gallery manifest="https://sophiedixon.github.io/3d-portfolio/collection/index.json"></iiif-gallery>
 
+    <span id="message"></span>
+
     <script>
         setTimeout(() => {
-            requirejs(['./uv/lib/uv-virtex-extension-dependencies'], function (deps) {
-                console.log(deps);
+            requirejs(['./deps'], function (deps) {
+                document.querySelector('#message').innerHTML = deps.message;
             });
         }, 3000);
     </script>
