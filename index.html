@@ -5,59 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Stencil Test Harness</title>
-    <link rel="stylesheet" type="text/css" href="uv/uv.css">
-    <link rel="stylesheet" type="text/css" href="portfolio.css">
+    <script src="https://unpkg.com/manifesto.js/dist/client/manifesto.bundle.js"></script>
     <script type="text/javascript" src="https://unpkg.com/iiif-gallery/dist/iiifgallery.js"></script>
-    <script type="text/javascript" src="uv/lib/offline.js"></script>
-    <script type="text/javascript" src="uv/helpers.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.5/require.js"></script>
 </head>
 <body>
 
-    <main>
+    <iiif-gallery manifest="https://sophiedixon.github.io/3d-portfolio/collection/index.json"></iiif-gallery>
 
-        <div id="uv" class="uv"></div>
-
-        <iiif-gallery manifest="https://sophiedixon.github.io/3d-portfolio/collection/index.json"></iiif-gallery>
-
-    </main>
-
-    <script type="text/javascript">
-
-        var uv, $uv, urlDataProvider, manifest;
-
-        window.addEventListener('uvLoaded', function (e) {
-
-            $uv = $('#uv');
-
-            var data = {
-                root: './uv',
-                iiifResourceUri: 'https://sophiedixon.github.io/3d-portfolio/collection/animal_skull/index.json',
-                collectionIndex: 0,
-                manifestIndex: 0,
-                sequenceIndex: 0,
-                canvasIndex: 0,
-                rotation: 0,
-                xywh: '',
-                locales: [
-                    {
-                        name: 'en-GB'
-                    }
-                ]
-            };
-
-            uv = createUV('#uv', data);
-
-        }, false);
-
+    <script>
+        setTimeout(() => {
+            requirejs(['./uv/lib/uv-virtex-extension-dependencies'], function (deps) {
+                console.log(deps);
+            });
+        }, 3000);
     </script>
-
-    <!-- <script>
-        requirejs(['./uv/lib/uv-virtex-extension-dependencies'], function (deps) {
-            console.log(deps);
-        });
-    </script> -->
-
-    <script src="uv/uv.js"></script>
 
 </body>
 </html>
