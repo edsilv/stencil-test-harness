@@ -14423,1233 +14423,754 @@ var Manifold;
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
 },{}]},{},[1])(1)
 });
-define('modules/uv-shared-module/BaseEvents',["require", "exports"], function (require, exports) {
-    "use strict";
-    Object.defineProperty(exports, "__esModule", { value: true });
-    var BaseEvents = /** @class */ (function () {
-        function BaseEvents() {
-        }
-        BaseEvents.ACCEPT_TERMS = 'acceptTerms';
-        BaseEvents.ANNOTATION_CANVAS_CHANGED = 'annotationCanvasChanged';
-        BaseEvents.ANNOTATION_CHANGED = 'annotationChanged';
-        BaseEvents.ANNOTATIONS_CLEARED = 'annotationsCleared';
-        BaseEvents.ANNOTATIONS_EMPTY = 'annotationsEmpty';
-        BaseEvents.ANNOTATIONS = 'annotations';
-        BaseEvents.BOOKMARK = 'bookmark';
-        BaseEvents.CANVAS_INDEX_CHANGE_FAILED = 'canvasIndexChangeFailed';
-        BaseEvents.CANVAS_INDEX_CHANGED = 'canvasIndexChanged';
-        BaseEvents.CLEAR_ANNOTATIONS = 'clearAnnotations';
-        BaseEvents.CLICKTHROUGH = 'clickthrough';
-        BaseEvents.CLOSE_ACTIVE_DIALOGUE = 'closeActiveDialogue';
-        BaseEvents.CLOSE_LEFT_PANEL = 'closeLeftPanel';
-        BaseEvents.CLOSE_RIGHT_PANEL = 'closeRightPanel';
-        BaseEvents.COLLECTION_INDEX_CHANGED = 'collectionIndexChanged';
-        BaseEvents.CREATE = 'create';
-        BaseEvents.CREATED = 'created';
-        BaseEvents.DOWN_ARROW = 'downArrow';
-        BaseEvents.DOWNLOAD = 'download';
-        BaseEvents.DROP = 'drop';
-        BaseEvents.END = 'end';
-        BaseEvents.ERROR = 'error';
-        BaseEvents.ESCAPE = 'escape';
-        BaseEvents.EXIT_FULLSCREEN = 'exitFullScreen';
-        BaseEvents.EXTERNAL_LINK_CLICKED = 'externalLinkClicked';
-        BaseEvents.FEEDBACK = 'feedback';
-        BaseEvents.FIRST = 'first';
-        BaseEvents.FORBIDDEN = 'forbidden';
-        BaseEvents.GALLERY_DECREASE_SIZE = 'galleryDecreaseSize';
-        BaseEvents.GALLERY_INCREASE_SIZE = 'galleryIncreaseSize';
-        BaseEvents.GALLERY_THUMB_SELECTED = 'galleryThumbSelected';
-        BaseEvents.HIDE_AUTH_DIALOGUE = 'hideAuthDialogue';
-        BaseEvents.HIDE_CLICKTHROUGH_DIALOGUE = 'hideClickthroughDialogue';
-        BaseEvents.HIDE_DOWNLOAD_DIALOGUE = 'hideDownloadDialogue';
-        BaseEvents.HIDE_EMBED_DIALOGUE = 'hideEmbedDialogue';
-        BaseEvents.HIDE_EXTERNALCONTENT_DIALOGUE = 'hideExternalContentDialogue';
-        BaseEvents.HIDE_GENERIC_DIALOGUE = 'hideGenericDialogue';
-        BaseEvents.HIDE_HELP_DIALOGUE = 'hideHelpDialogue';
-        BaseEvents.HIDE_INFORMATION = 'hideInformation';
-        BaseEvents.HIDE_LOGIN_DIALOGUE = 'hideLoginDialogue';
-        BaseEvents.HIDE_MOREINFO_DIALOGUE = 'hideMoreInfoDialogue';
-        BaseEvents.HIDE_MULTISELECT_DIALOGUE = 'hideMultiSelectDialogue';
-        BaseEvents.HIDE_OVERLAY = 'hideOverlay';
-        BaseEvents.HIDE_RESTRICTED_DIALOGUE = 'hideRestrictedDialogue';
-        BaseEvents.HIDE_SETTINGS_DIALOGUE = 'hideSettingsDialogue';
-        BaseEvents.HIDE_SHARE_DIALOGUE = 'hideShareDialogue';
-        BaseEvents.HOME = 'home';
-        BaseEvents.LAST = 'last';
-        BaseEvents.LEFT_ARROW = 'leftArrow';
-        BaseEvents.LEFTPANEL_COLLAPSE_FULL_FINISH = 'leftPanelCollapseFullFinish';
-        BaseEvents.LEFTPANEL_COLLAPSE_FULL_START = 'leftPanelCollapseFullStart';
-        BaseEvents.LEFTPANEL_EXPAND_FULL_FINISH = 'leftPanelExpandFullFinish';
-        BaseEvents.LEFTPANEL_EXPAND_FULL_START = 'leftPanelExpandFullStart';
-        BaseEvents.LOAD_FAILED = 'loadFailed';
-        BaseEvents.LOGIN_FAILED = 'loginFailed';
-        BaseEvents.LOGIN = 'login';
-        BaseEvents.LOGOUT = 'logout';
-        BaseEvents.MANIFEST_INDEX_CHANGED = 'manifestIndexChanged';
-        BaseEvents.METRIC_CHANGED = 'metricChanged';
-        BaseEvents.MINUS = 'minus';
-        BaseEvents.MULTISELECT_CHANGE = 'multiSelectChange';
-        BaseEvents.MULTISELECTION_MADE = 'multiSelectionMade';
-        BaseEvents.NEXT = 'next';
-        BaseEvents.NO_RANGE = 'norange';
-        BaseEvents.NOT_FOUND = 'notFound';
-        BaseEvents.OPEN_EXTERNAL_RESOURCE = 'openExternalResource';
-        BaseEvents.OPEN_LEFT_PANEL = 'openLeftPanel';
-        BaseEvents.OPEN_RIGHT_PANEL = 'openRightPanel';
-        BaseEvents.OPEN_THUMBS_VIEW = 'openThumbsView';
-        BaseEvents.OPEN_TREE_VIEW = 'openTreeView';
-        BaseEvents.OPEN = 'open';
-        BaseEvents.PAGE_DOWN = 'pageDown';
-        BaseEvents.PAGE_UP = 'pageUp';
-        BaseEvents.PLUS = 'plus';
-        BaseEvents.PREV = 'prev';
-        BaseEvents.RANGE_CHANGED = 'rangeChanged';
-        BaseEvents.REDIRECT = 'redirect';
-        BaseEvents.REFRESH = 'refresh';
-        BaseEvents.RELOAD = 'reload';
-        BaseEvents.RESIZE = 'resize';
-        BaseEvents.RESOURCE_DEGRADED = 'resourceDegraded';
-        BaseEvents.RETRY = 'retry';
-        BaseEvents.RETURN = 'return';
-        BaseEvents.RIGHT_ARROW = 'rightArrow';
-        BaseEvents.RIGHTPANEL_COLLAPSE_FULL_FINISH = 'rightPanelCollapseFullFinish';
-        BaseEvents.RIGHTPANEL_COLLAPSE_FULL_START = 'rightPanelCollapseFullStart';
-        BaseEvents.RIGHTPANEL_EXPAND_FULL_FINISH = 'rightPanelExpandFullFinish';
-        BaseEvents.RIGHTPANEL_EXPAND_FULL_START = 'rightPanelExpandFullStart';
-        BaseEvents.SEQUENCE_INDEX_CHANGED = 'sequenceIndexChanged';
-        BaseEvents.SETTINGS_CHANGED = 'settingsChanged';
-        BaseEvents.SHOW_AUTH_DIALOGUE = 'showAuthDialogue';
-        BaseEvents.SHOW_CLICKTHROUGH_DIALOGUE = 'showClickThroughDialogue';
-        BaseEvents.SHOW_DOWNLOAD_DIALOGUE = 'showDownloadDialogue';
-        BaseEvents.SHOW_EMBED_DIALOGUE = 'showEmbedDialogue';
-        BaseEvents.SHOW_EXTERNALCONTENT_DIALOGUE = 'showExternalContentDialogue';
-        BaseEvents.SHOW_GENERIC_DIALOGUE = 'showGenericDialogue';
-        BaseEvents.SHOW_HELP_DIALOGUE = 'showHelpDialogue';
-        BaseEvents.SHOW_INFORMATION = 'showInformation';
-        BaseEvents.SHOW_LOGIN_DIALOGUE = 'showLoginDialogue';
-        BaseEvents.SHOW_MESSAGE = 'showMessage';
-        BaseEvents.SHOW_MOREINFO_DIALOGUE = 'showMoreInfoDialogue';
-        BaseEvents.SHOW_MULTISELECT_DIALOGUE = 'showMultiSelectDialogue';
-        BaseEvents.SHOW_OVERLAY = 'showOverlay';
-        BaseEvents.SHOW_RESTRICTED_DIALOGUE = 'showRestrictedDialogue';
-        BaseEvents.SHOW_SETTINGS_DIALOGUE = 'showSettingsDialogue';
-        BaseEvents.SHOW_SHARE_DIALOGUE = 'showShareDialogue';
-        BaseEvents.SHOW_TERMS_OF_USE = 'showTermsOfUse';
-        BaseEvents.THUMB_MULTISELECTED = 'thumbMultiSelected';
-        BaseEvents.THUMB_SELECTED = 'thumbSelected';
-        BaseEvents.TOGGLE_EXPAND_LEFT_PANEL = 'toggleExpandLeftPanel';
-        BaseEvents.TOGGLE_EXPAND_RIGHT_PANEL = 'toggleExpandRightPanel';
-        BaseEvents.TOGGLE_FULLSCREEN = 'toggleFullScreen';
-        BaseEvents.TREE_NODE_MULTISELECTED = 'treeNodeMultiSelected';
-        BaseEvents.TREE_NODE_SELECTED = 'treeNodeSelected';
-        BaseEvents.UP_ARROW = 'upArrow';
-        BaseEvents.UPDATE_SETTINGS = 'updateSettings';
-        BaseEvents.VIEW_FULL_TERMS = 'viewFullTerms';
-        BaseEvents.WINDOW_UNLOAD = 'windowUnload';
-        return BaseEvents;
-    }());
-    exports.BaseEvents = BaseEvents;
-});
-//# sourceMappingURL=BaseEvents.js.map
-define('modules/uv-shared-module/InformationArgs',["require", "exports"], function (require, exports) {
-    "use strict";
-    Object.defineProperty(exports, "__esModule", { value: true });
-    var InformationArgs = /** @class */ (function () {
-        function InformationArgs(informationType, param) {
-            this.informationType = informationType;
-            this.param = param;
-        }
-        return InformationArgs;
-    }());
-    exports.InformationArgs = InformationArgs;
-});
-//# sourceMappingURL=InformationArgs.js.map
-define('modules/uv-shared-module/InformationType',["require", "exports"], function (require, exports) {
-    "use strict";
-    Object.defineProperty(exports, "__esModule", { value: true });
-    var InformationType;
-    (function (InformationType) {
-        InformationType[InformationType["AUTH_CORS_ERROR"] = 0] = "AUTH_CORS_ERROR";
-        InformationType[InformationType["DEGRADED_RESOURCE"] = 1] = "DEGRADED_RESOURCE";
-    })(InformationType = exports.InformationType || (exports.InformationType = {}));
-});
-//# sourceMappingURL=InformationType.js.map
-define('modules/uv-shared-module/LoginWarningMessages',["require", "exports"], function (require, exports) {
-    "use strict";
-    Object.defineProperty(exports, "__esModule", { value: true });
-    var LoginWarningMessages = /** @class */ (function () {
-        function LoginWarningMessages() {
-        }
-        LoginWarningMessages.FORBIDDEN = "forbiddenResourceMessage";
-        return LoginWarningMessages;
-    }());
-    exports.LoginWarningMessages = LoginWarningMessages;
-});
-//# sourceMappingURL=LoginWarningMessages.js.map
-define('modules/uv-shared-module/Auth09',["require", "exports", "./BaseEvents", "./InformationArgs", "./InformationType", "./LoginWarningMessages"], function (require, exports, BaseEvents_1, InformationArgs_1, InformationType_1, LoginWarningMessages_1) {
-    "use strict";
-    Object.defineProperty(exports, "__esModule", { value: true });
-    var Auth09 = /** @class */ (function () {
-        function Auth09() {
-        }
-        Auth09.loadExternalResources = function (resourcesToLoad, storageStrategy) {
-            return new Promise(function (resolve) {
-                manifesto.Utils.loadExternalResourcesAuth09(resourcesToLoad, storageStrategy, Auth09.clickThrough, Auth09.restricted, Auth09.login, Auth09.getAccessToken, Auth09.storeAccessToken, Auth09.getStoredAccessToken, Auth09.handleExternalResourceResponse).then(function (r) {
-                    resolve(r);
-                })['catch'](function (error) {
-                    switch (error.name) {
-                        case manifesto.StatusCodes.AUTHORIZATION_FAILED.toString():
-                            $.publish(BaseEvents_1.BaseEvents.LOGIN_FAILED);
-                            break;
-                        case manifesto.StatusCodes.FORBIDDEN.toString():
-                            $.publish(BaseEvents_1.BaseEvents.FORBIDDEN);
-                            break;
-                        case manifesto.StatusCodes.RESTRICTED.toString():
-                            // do nothing
-                            break;
-                        default:
-                            $.publish(BaseEvents_1.BaseEvents.SHOW_MESSAGE, [error.message || error]);
-                    }
-                });
-            });
-        };
-        Auth09.clickThrough = function (resource) {
-            return new Promise(function (resolve) {
-                $.publish(BaseEvents_1.BaseEvents.SHOW_CLICKTHROUGH_DIALOGUE, [{
-                        resource: resource,
-                        acceptCallback: function () {
-                            if (resource.clickThroughService) {
-                                var win_1 = window.open(resource.clickThroughService.id);
-                                var pollTimer_1 = window.setInterval(function () {
-                                    if (win_1 && win_1.closed) {
-                                        window.clearInterval(pollTimer_1);
-                                        $.publish(BaseEvents_1.BaseEvents.CLICKTHROUGH);
-                                        resolve();
-                                    }
-                                }, 500);
-                            }
-                        }
-                    }]);
-            });
-        };
-        Auth09.restricted = function (resource) {
-            return new Promise(function (resolve, reject) {
-                $.publish(BaseEvents_1.BaseEvents.SHOW_RESTRICTED_DIALOGUE, [{
-                        resource: resource,
-                        acceptCallback: function () {
-                            $.publish(BaseEvents_1.BaseEvents.LOAD_FAILED);
-                            reject(resource);
-                        }
-                    }]);
-            });
-        };
-        Auth09.login = function (resource) {
-            return new Promise(function (resolve) {
-                var options = {};
-                if (resource.status === HTTPStatusCode.FORBIDDEN) {
-                    options.warningMessage = LoginWarningMessages_1.LoginWarningMessages.FORBIDDEN;
-                    options.showCancelButton = true;
+        define('modules/uv-shared-module/BaseEvents',["require", "exports"], function (require, exports) {
+            "use strict";
+            Object.defineProperty(exports, "__esModule", { value: true });
+            var BaseEvents = /** @class */ (function () {
+                function BaseEvents() {
                 }
-                $.publish(BaseEvents_1.BaseEvents.SHOW_LOGIN_DIALOGUE, [{
-                        resource: resource,
-                        loginCallback: function () {
-                            if (resource.loginService) {
-                                var win_2 = window.open(resource.loginService.id + "?t=" + new Date().getTime());
-                                var pollTimer_2 = window.setInterval(function () {
-                                    if (win_2 && win_2.closed) {
-                                        window.clearInterval(pollTimer_2);
-                                        $.publish(BaseEvents_1.BaseEvents.LOGIN);
-                                        resolve();
+                BaseEvents.ACCEPT_TERMS = 'acceptTerms';
+                BaseEvents.ANNOTATION_CANVAS_CHANGED = 'annotationCanvasChanged';
+                BaseEvents.ANNOTATION_CHANGED = 'annotationChanged';
+                BaseEvents.ANNOTATIONS_CLEARED = 'annotationsCleared';
+                BaseEvents.ANNOTATIONS_EMPTY = 'annotationsEmpty';
+                BaseEvents.ANNOTATIONS = 'annotations';
+                BaseEvents.BOOKMARK = 'bookmark';
+                BaseEvents.CANVAS_INDEX_CHANGE_FAILED = 'canvasIndexChangeFailed';
+                BaseEvents.CANVAS_INDEX_CHANGED = 'canvasIndexChanged';
+                BaseEvents.CLEAR_ANNOTATIONS = 'clearAnnotations';
+                BaseEvents.CLICKTHROUGH = 'clickthrough';
+                BaseEvents.CLOSE_ACTIVE_DIALOGUE = 'closeActiveDialogue';
+                BaseEvents.CLOSE_LEFT_PANEL = 'closeLeftPanel';
+                BaseEvents.CLOSE_RIGHT_PANEL = 'closeRightPanel';
+                BaseEvents.COLLECTION_INDEX_CHANGED = 'collectionIndexChanged';
+                BaseEvents.CREATE = 'create';
+                BaseEvents.CREATED = 'created';
+                BaseEvents.DOWN_ARROW = 'downArrow';
+                BaseEvents.DOWNLOAD = 'download';
+                BaseEvents.DROP = 'drop';
+                BaseEvents.END = 'end';
+                BaseEvents.ERROR = 'error';
+                BaseEvents.ESCAPE = 'escape';
+                BaseEvents.EXIT_FULLSCREEN = 'exitFullScreen';
+                BaseEvents.EXTERNAL_LINK_CLICKED = 'externalLinkClicked';
+                BaseEvents.FEEDBACK = 'feedback';
+                BaseEvents.FIRST = 'first';
+                BaseEvents.FORBIDDEN = 'forbidden';
+                BaseEvents.GALLERY_DECREASE_SIZE = 'galleryDecreaseSize';
+                BaseEvents.GALLERY_INCREASE_SIZE = 'galleryIncreaseSize';
+                BaseEvents.GALLERY_THUMB_SELECTED = 'galleryThumbSelected';
+                BaseEvents.HIDE_AUTH_DIALOGUE = 'hideAuthDialogue';
+                BaseEvents.HIDE_CLICKTHROUGH_DIALOGUE = 'hideClickthroughDialogue';
+                BaseEvents.HIDE_DOWNLOAD_DIALOGUE = 'hideDownloadDialogue';
+                BaseEvents.HIDE_EMBED_DIALOGUE = 'hideEmbedDialogue';
+                BaseEvents.HIDE_EXTERNALCONTENT_DIALOGUE = 'hideExternalContentDialogue';
+                BaseEvents.HIDE_GENERIC_DIALOGUE = 'hideGenericDialogue';
+                BaseEvents.HIDE_HELP_DIALOGUE = 'hideHelpDialogue';
+                BaseEvents.HIDE_INFORMATION = 'hideInformation';
+                BaseEvents.HIDE_LOGIN_DIALOGUE = 'hideLoginDialogue';
+                BaseEvents.HIDE_MOREINFO_DIALOGUE = 'hideMoreInfoDialogue';
+                BaseEvents.HIDE_MULTISELECT_DIALOGUE = 'hideMultiSelectDialogue';
+                BaseEvents.HIDE_OVERLAY = 'hideOverlay';
+                BaseEvents.HIDE_RESTRICTED_DIALOGUE = 'hideRestrictedDialogue';
+                BaseEvents.HIDE_SETTINGS_DIALOGUE = 'hideSettingsDialogue';
+                BaseEvents.HIDE_SHARE_DIALOGUE = 'hideShareDialogue';
+                BaseEvents.HOME = 'home';
+                BaseEvents.LAST = 'last';
+                BaseEvents.LEFT_ARROW = 'leftArrow';
+                BaseEvents.LEFTPANEL_COLLAPSE_FULL_FINISH = 'leftPanelCollapseFullFinish';
+                BaseEvents.LEFTPANEL_COLLAPSE_FULL_START = 'leftPanelCollapseFullStart';
+                BaseEvents.LEFTPANEL_EXPAND_FULL_FINISH = 'leftPanelExpandFullFinish';
+                BaseEvents.LEFTPANEL_EXPAND_FULL_START = 'leftPanelExpandFullStart';
+                BaseEvents.LOAD_FAILED = 'loadFailed';
+                BaseEvents.LOGIN_FAILED = 'loginFailed';
+                BaseEvents.LOGIN = 'login';
+                BaseEvents.LOGOUT = 'logout';
+                BaseEvents.MANIFEST_INDEX_CHANGED = 'manifestIndexChanged';
+                BaseEvents.METRIC_CHANGED = 'metricChanged';
+                BaseEvents.MINUS = 'minus';
+                BaseEvents.MULTISELECT_CHANGE = 'multiSelectChange';
+                BaseEvents.MULTISELECTION_MADE = 'multiSelectionMade';
+                BaseEvents.NEXT = 'next';
+                BaseEvents.NO_RANGE = 'norange';
+                BaseEvents.NOT_FOUND = 'notFound';
+                BaseEvents.OPEN_EXTERNAL_RESOURCE = 'openExternalResource';
+                BaseEvents.OPEN_LEFT_PANEL = 'openLeftPanel';
+                BaseEvents.OPEN_RIGHT_PANEL = 'openRightPanel';
+                BaseEvents.OPEN_THUMBS_VIEW = 'openThumbsView';
+                BaseEvents.OPEN_TREE_VIEW = 'openTreeView';
+                BaseEvents.OPEN = 'open';
+                BaseEvents.PAGE_DOWN = 'pageDown';
+                BaseEvents.PAGE_UP = 'pageUp';
+                BaseEvents.PLUS = 'plus';
+                BaseEvents.PREV = 'prev';
+                BaseEvents.RANGE_CHANGED = 'rangeChanged';
+                BaseEvents.REDIRECT = 'redirect';
+                BaseEvents.REFRESH = 'refresh';
+                BaseEvents.RELOAD = 'reload';
+                BaseEvents.RESIZE = 'resize';
+                BaseEvents.RESOURCE_DEGRADED = 'resourceDegraded';
+                BaseEvents.RETRY = 'retry';
+                BaseEvents.RETURN = 'return';
+                BaseEvents.RIGHT_ARROW = 'rightArrow';
+                BaseEvents.RIGHTPANEL_COLLAPSE_FULL_FINISH = 'rightPanelCollapseFullFinish';
+                BaseEvents.RIGHTPANEL_COLLAPSE_FULL_START = 'rightPanelCollapseFullStart';
+                BaseEvents.RIGHTPANEL_EXPAND_FULL_FINISH = 'rightPanelExpandFullFinish';
+                BaseEvents.RIGHTPANEL_EXPAND_FULL_START = 'rightPanelExpandFullStart';
+                BaseEvents.SEQUENCE_INDEX_CHANGED = 'sequenceIndexChanged';
+                BaseEvents.SETTINGS_CHANGED = 'settingsChanged';
+                BaseEvents.SHOW_AUTH_DIALOGUE = 'showAuthDialogue';
+                BaseEvents.SHOW_CLICKTHROUGH_DIALOGUE = 'showClickThroughDialogue';
+                BaseEvents.SHOW_DOWNLOAD_DIALOGUE = 'showDownloadDialogue';
+                BaseEvents.SHOW_EMBED_DIALOGUE = 'showEmbedDialogue';
+                BaseEvents.SHOW_EXTERNALCONTENT_DIALOGUE = 'showExternalContentDialogue';
+                BaseEvents.SHOW_GENERIC_DIALOGUE = 'showGenericDialogue';
+                BaseEvents.SHOW_HELP_DIALOGUE = 'showHelpDialogue';
+                BaseEvents.SHOW_INFORMATION = 'showInformation';
+                BaseEvents.SHOW_LOGIN_DIALOGUE = 'showLoginDialogue';
+                BaseEvents.SHOW_MESSAGE = 'showMessage';
+                BaseEvents.SHOW_MOREINFO_DIALOGUE = 'showMoreInfoDialogue';
+                BaseEvents.SHOW_MULTISELECT_DIALOGUE = 'showMultiSelectDialogue';
+                BaseEvents.SHOW_OVERLAY = 'showOverlay';
+                BaseEvents.SHOW_RESTRICTED_DIALOGUE = 'showRestrictedDialogue';
+                BaseEvents.SHOW_SETTINGS_DIALOGUE = 'showSettingsDialogue';
+                BaseEvents.SHOW_SHARE_DIALOGUE = 'showShareDialogue';
+                BaseEvents.SHOW_TERMS_OF_USE = 'showTermsOfUse';
+                BaseEvents.THUMB_MULTISELECTED = 'thumbMultiSelected';
+                BaseEvents.THUMB_SELECTED = 'thumbSelected';
+                BaseEvents.TOGGLE_EXPAND_LEFT_PANEL = 'toggleExpandLeftPanel';
+                BaseEvents.TOGGLE_EXPAND_RIGHT_PANEL = 'toggleExpandRightPanel';
+                BaseEvents.TOGGLE_FULLSCREEN = 'toggleFullScreen';
+                BaseEvents.TREE_NODE_MULTISELECTED = 'treeNodeMultiSelected';
+                BaseEvents.TREE_NODE_SELECTED = 'treeNodeSelected';
+                BaseEvents.UP_ARROW = 'upArrow';
+                BaseEvents.UPDATE_SETTINGS = 'updateSettings';
+                BaseEvents.VIEW_FULL_TERMS = 'viewFullTerms';
+                BaseEvents.WINDOW_UNLOAD = 'windowUnload';
+                return BaseEvents;
+            }());
+            exports.BaseEvents = BaseEvents;
+        });
+        //# sourceMappingURL=BaseEvents.js.map
+        define('modules/uv-shared-module/InformationArgs',["require", "exports"], function (require, exports) {
+            "use strict";
+            Object.defineProperty(exports, "__esModule", { value: true });
+            var InformationArgs = /** @class */ (function () {
+                function InformationArgs(informationType, param) {
+                    this.informationType = informationType;
+                    this.param = param;
+                }
+                return InformationArgs;
+            }());
+            exports.InformationArgs = InformationArgs;
+        });
+        //# sourceMappingURL=InformationArgs.js.map
+        define('modules/uv-shared-module/InformationType',["require", "exports"], function (require, exports) {
+            "use strict";
+            Object.defineProperty(exports, "__esModule", { value: true });
+            var InformationType;
+            (function (InformationType) {
+                InformationType[InformationType["AUTH_CORS_ERROR"] = 0] = "AUTH_CORS_ERROR";
+                InformationType[InformationType["DEGRADED_RESOURCE"] = 1] = "DEGRADED_RESOURCE";
+            })(InformationType = exports.InformationType || (exports.InformationType = {}));
+        });
+        //# sourceMappingURL=InformationType.js.map
+        define('modules/uv-shared-module/LoginWarningMessages',["require", "exports"], function (require, exports) {
+            "use strict";
+            Object.defineProperty(exports, "__esModule", { value: true });
+            var LoginWarningMessages = /** @class */ (function () {
+                function LoginWarningMessages() {
+                }
+                LoginWarningMessages.FORBIDDEN = "forbiddenResourceMessage";
+                return LoginWarningMessages;
+            }());
+            exports.LoginWarningMessages = LoginWarningMessages;
+        });
+        //# sourceMappingURL=LoginWarningMessages.js.map
+        define('modules/uv-shared-module/Auth09',["require", "exports", "./BaseEvents", "./InformationArgs", "./InformationType", "./LoginWarningMessages"], function (require, exports, BaseEvents_1, InformationArgs_1, InformationType_1, LoginWarningMessages_1) {
+            "use strict";
+            Object.defineProperty(exports, "__esModule", { value: true });
+            var Auth09 = /** @class */ (function () {
+                function Auth09() {
+                }
+                Auth09.loadExternalResources = function (resourcesToLoad, storageStrategy) {
+                    return new Promise(function (resolve) {
+                        manifesto.Utils.loadExternalResourcesAuth09(resourcesToLoad, storageStrategy, Auth09.clickThrough, Auth09.restricted, Auth09.login, Auth09.getAccessToken, Auth09.storeAccessToken, Auth09.getStoredAccessToken, Auth09.handleExternalResourceResponse).then(function (r) {
+                            resolve(r);
+                        })['catch'](function (error) {
+                            switch (error.name) {
+                                case manifesto.StatusCodes.AUTHORIZATION_FAILED.toString():
+                                    $.publish(BaseEvents_1.BaseEvents.LOGIN_FAILED);
+                                    break;
+                                case manifesto.StatusCodes.FORBIDDEN.toString():
+                                    $.publish(BaseEvents_1.BaseEvents.FORBIDDEN);
+                                    break;
+                                case manifesto.StatusCodes.RESTRICTED.toString():
+                                    // do nothing
+                                    break;
+                                default:
+                                    $.publish(BaseEvents_1.BaseEvents.SHOW_MESSAGE, [error.message || error]);
+                            }
+                        });
+                    });
+                };
+                Auth09.clickThrough = function (resource) {
+                    return new Promise(function (resolve) {
+                        $.publish(BaseEvents_1.BaseEvents.SHOW_CLICKTHROUGH_DIALOGUE, [{
+                                resource: resource,
+                                acceptCallback: function () {
+                                    if (resource.clickThroughService) {
+                                        var win_1 = window.open(resource.clickThroughService.id);
+                                        var pollTimer_1 = window.setInterval(function () {
+                                            if (win_1 && win_1.closed) {
+                                                window.clearInterval(pollTimer_1);
+                                                $.publish(BaseEvents_1.BaseEvents.CLICKTHROUGH);
+                                                resolve();
+                                            }
+                                        }, 500);
                                     }
-                                }, 500);
-                            }
-                        },
-                        logoutCallback: function () {
-                            if (resource.logoutService) {
-                                var win_3 = window.open(resource.logoutService.id + "?t=" + new Date().getTime());
-                                var pollTimer_3 = window.setInterval(function () {
-                                    if (win_3 && win_3.closed) {
-                                        window.clearInterval(pollTimer_3);
-                                        $.publish(BaseEvents_1.BaseEvents.LOGOUT);
-                                        resolve();
+                                }
+                            }]);
+                    });
+                };
+                Auth09.restricted = function (resource) {
+                    return new Promise(function (resolve, reject) {
+                        $.publish(BaseEvents_1.BaseEvents.SHOW_RESTRICTED_DIALOGUE, [{
+                                resource: resource,
+                                acceptCallback: function () {
+                                    $.publish(BaseEvents_1.BaseEvents.LOAD_FAILED);
+                                    reject(resource);
+                                }
+                            }]);
+                    });
+                };
+                Auth09.login = function (resource) {
+                    return new Promise(function (resolve) {
+                        var options = {};
+                        if (resource.status === HTTPStatusCode.FORBIDDEN) {
+                            options.warningMessage = LoginWarningMessages_1.LoginWarningMessages.FORBIDDEN;
+                            options.showCancelButton = true;
+                        }
+                        $.publish(BaseEvents_1.BaseEvents.SHOW_LOGIN_DIALOGUE, [{
+                                resource: resource,
+                                loginCallback: function () {
+                                    if (resource.loginService) {
+                                        var win_2 = window.open(resource.loginService.id + "?t=" + new Date().getTime());
+                                        var pollTimer_2 = window.setInterval(function () {
+                                            if (win_2 && win_2.closed) {
+                                                window.clearInterval(pollTimer_2);
+                                                $.publish(BaseEvents_1.BaseEvents.LOGIN);
+                                                resolve();
+                                            }
+                                        }, 500);
                                     }
-                                }, 500);
-                            }
-                        },
-                        options: options
-                    }]);
-            });
-        };
-        Auth09.getAccessToken = function (resource, rejectOnError) {
-            return new Promise(function (resolve, reject) {
-                if (resource.tokenService) {
-                    var serviceUri = resource.tokenService.id;
-                    // pick an identifier for this message. We might want to keep track of sent messages
-                    var msgId = serviceUri + "|" + new Date().getTime();
-                    var receiveAccessToken_1 = function (e) {
-                        window.removeEventListener("message", receiveAccessToken_1);
-                        var token = e.data;
-                        if (token.error) {
-                            if (rejectOnError) {
-                                reject(token.errorDescription);
-                            }
-                            else {
-                                resolve(undefined);
-                            }
+                                },
+                                logoutCallback: function () {
+                                    if (resource.logoutService) {
+                                        var win_3 = window.open(resource.logoutService.id + "?t=" + new Date().getTime());
+                                        var pollTimer_3 = window.setInterval(function () {
+                                            if (win_3 && win_3.closed) {
+                                                window.clearInterval(pollTimer_3);
+                                                $.publish(BaseEvents_1.BaseEvents.LOGOUT);
+                                                resolve();
+                                            }
+                                        }, 500);
+                                    }
+                                },
+                                options: options
+                            }]);
+                    });
+                };
+                Auth09.getAccessToken = function (resource, rejectOnError) {
+                    return new Promise(function (resolve, reject) {
+                        if (resource.tokenService) {
+                            var serviceUri = resource.tokenService.id;
+                            // pick an identifier for this message. We might want to keep track of sent messages
+                            var msgId = serviceUri + "|" + new Date().getTime();
+                            var receiveAccessToken_1 = function (e) {
+                                window.removeEventListener("message", receiveAccessToken_1);
+                                var token = e.data;
+                                if (token.error) {
+                                    if (rejectOnError) {
+                                        reject(token.errorDescription);
+                                    }
+                                    else {
+                                        resolve(undefined);
+                                    }
+                                }
+                                else {
+                                    resolve(token);
+                                }
+                            };
+                            window.addEventListener("message", receiveAccessToken_1, false);
+                            var tokenUri = serviceUri + "?messageId=" + msgId;
+                            $('#commsFrame').prop('src', tokenUri);
                         }
                         else {
-                            resolve(token);
+                            reject('Token service not found');
                         }
-                    };
-                    window.addEventListener("message", receiveAccessToken_1, false);
-                    var tokenUri = serviceUri + "?messageId=" + msgId;
-                    $('#commsFrame').prop('src', tokenUri);
-                }
-                else {
-                    reject('Token service not found');
-                }
-            });
-        };
-        Auth09.storeAccessToken = function (resource, token, storageStrategy) {
-            return new Promise(function (resolve, reject) {
-                if (resource.tokenService) {
-                    Utils.Storage.set(resource.tokenService.id, token, token.expiresIn, new Utils.StorageType(storageStrategy));
-                    resolve();
-                }
-                else {
-                    reject('Token service not found');
-                }
-            });
-        };
-        Auth09.getStoredAccessToken = function (resource, storageStrategy) {
-            return new Promise(function (resolve, reject) {
-                var foundItems = [];
-                var item = null;
-                // try to match on the tokenService, if the resource has one:
-                if (resource.tokenService) {
-                    item = Utils.Storage.get(resource.tokenService.id, new Utils.StorageType(storageStrategy));
-                }
-                if (item) {
-                    foundItems.push(item);
-                }
-                else {
-                    // find an access token for the domain
-                    var domain = Utils.Urls.getUrlParts(resource.dataUri).hostname;
-                    var items = Utils.Storage.getItems(new Utils.StorageType(storageStrategy));
-                    for (var i = 0; i < items.length; i++) {
-                        item = items[i];
-                        if (item.key.includes(domain)) {
+                    });
+                };
+                Auth09.storeAccessToken = function (resource, token, storageStrategy) {
+                    return new Promise(function (resolve, reject) {
+                        if (resource.tokenService) {
+                            Utils.Storage.set(resource.tokenService.id, token, token.expiresIn, new Utils.StorageType(storageStrategy));
+                            resolve();
+                        }
+                        else {
+                            reject('Token service not found');
+                        }
+                    });
+                };
+                Auth09.getStoredAccessToken = function (resource, storageStrategy) {
+                    return new Promise(function (resolve, reject) {
+                        var foundItems = [];
+                        var item = null;
+                        // try to match on the tokenService, if the resource has one:
+                        if (resource.tokenService) {
+                            item = Utils.Storage.get(resource.tokenService.id, new Utils.StorageType(storageStrategy));
+                        }
+                        if (item) {
                             foundItems.push(item);
                         }
-                    }
-                }
-                // sort by expiresAt, earliest to most recent.
-                foundItems = foundItems.sort(function (a, b) {
-                    return a.expiresAt - b.expiresAt;
-                });
-                var foundToken;
-                if (foundItems.length) {
-                    foundToken = foundItems[foundItems.length - 1].value;
-                }
-                resolve(foundToken);
-            });
-        };
-        Auth09.handleExternalResourceResponse = function (resource) {
-            return new Promise(function (resolve, reject) {
-                resource.isResponseHandled = true;
-                if (resource.status === HTTPStatusCode.OK) {
-                    resolve(resource);
-                }
-                else if (resource.status === HTTPStatusCode.MOVED_TEMPORARILY) {
-                    resolve(resource);
-                    $.publish(BaseEvents_1.BaseEvents.RESOURCE_DEGRADED, [resource]);
-                }
-                else {
-                    if (resource.error.status === HTTPStatusCode.UNAUTHORIZED ||
-                        resource.error.status === HTTPStatusCode.INTERNAL_SERVER_ERROR) {
-                        // if the browser doesn't support CORS
-                        if (!Modernizr.cors) {
-                            var informationArgs = new InformationArgs_1.InformationArgs(InformationType_1.InformationType.AUTH_CORS_ERROR, null);
-                            $.publish(BaseEvents_1.BaseEvents.SHOW_INFORMATION, [informationArgs]);
+                        else {
+                            // find an access token for the domain
+                            var domain = Utils.Urls.getUrlParts(resource.dataUri).hostname;
+                            var items = Utils.Storage.getItems(new Utils.StorageType(storageStrategy));
+                            for (var i = 0; i < items.length; i++) {
+                                item = items[i];
+                                if (item.key.includes(domain)) {
+                                    foundItems.push(item);
+                                }
+                            }
+                        }
+                        // sort by expiresAt, earliest to most recent.
+                        foundItems = foundItems.sort(function (a, b) {
+                            return a.expiresAt - b.expiresAt;
+                        });
+                        var foundToken;
+                        if (foundItems.length) {
+                            foundToken = foundItems[foundItems.length - 1].value;
+                        }
+                        resolve(foundToken);
+                    });
+                };
+                Auth09.handleExternalResourceResponse = function (resource) {
+                    return new Promise(function (resolve, reject) {
+                        resource.isResponseHandled = true;
+                        if (resource.status === HTTPStatusCode.OK) {
                             resolve(resource);
                         }
-                        else {
-                            reject(resource.error.statusText);
+                        else if (resource.status === HTTPStatusCode.MOVED_TEMPORARILY) {
+                            resolve(resource);
+                            $.publish(BaseEvents_1.BaseEvents.RESOURCE_DEGRADED, [resource]);
                         }
+                        else {
+                            if (resource.error.status === HTTPStatusCode.UNAUTHORIZED ||
+                                resource.error.status === HTTPStatusCode.INTERNAL_SERVER_ERROR) {
+                                // if the browser doesn't support CORS
+                                if (!Modernizr.cors) {
+                                    var informationArgs = new InformationArgs_1.InformationArgs(InformationType_1.InformationType.AUTH_CORS_ERROR, null);
+                                    $.publish(BaseEvents_1.BaseEvents.SHOW_INFORMATION, [informationArgs]);
+                                    resolve(resource);
+                                }
+                                else {
+                                    reject(resource.error.statusText);
+                                }
+                            }
+                            else if (resource.error.status === HTTPStatusCode.FORBIDDEN) {
+                                var error = new Error();
+                                error.message = "Forbidden";
+                                error.name = manifesto.StatusCodes.FORBIDDEN.toString();
+                                reject(error);
+                            }
+                            else {
+                                reject(resource.error.statusText);
+                            }
+                        }
+                    });
+                };
+                Auth09.handleDegraded = function (resource) {
+                    var informationArgs = new InformationArgs_1.InformationArgs(InformationType_1.InformationType.DEGRADED_RESOURCE, resource);
+                    $.publish(BaseEvents_1.BaseEvents.SHOW_INFORMATION, [informationArgs]);
+                };
+                return Auth09;
+            }());
+            exports.Auth09 = Auth09;
+        });
+        //# sourceMappingURL=Auth09.js.map
+        define('modules/uv-shared-module/Utils',["require", "exports"], function (require, exports) {
+            "use strict";
+            Object.defineProperty(exports, "__esModule", { value: true });
+            var UVUtils = /** @class */ (function () {
+                function UVUtils() {
+                }
+                UVUtils.sanitize = function (html) {
+                    var elem = document.createElement('div');
+                    var $elem = $(elem);
+                    $elem.html(html);
+                    var s = new Sanitize({
+                        elements: ['a', 'b', 'br', 'img', 'p', 'i', 'span'],
+                        attributes: {
+                            a: ['href'],
+                            img: ['src', 'alt']
+                        },
+                        protocols: {
+                            a: { href: ['http', 'https'] }
+                        }
+                    });
+                    $elem.html(s.clean_node(elem));
+                    return $elem.html();
+                };
+                UVUtils.isValidUrl = function (value) {
+                    var a = document.createElement('a');
+                    a.href = value;
+                    return (!!a.host && a.host !== window.location.host);
+                };
+                return UVUtils;
+            }());
+            exports.UVUtils = UVUtils;
+        });
+        //# sourceMappingURL=Utils.js.map
+        define('modules/uv-shared-module/Auth1',["require", "exports", "./BaseEvents", "./Utils", "./InformationArgs", "./InformationType"], function (require, exports, BaseEvents_1, Utils_1, InformationArgs_1, InformationType_1) {
+            "use strict";
+            Object.defineProperty(exports, "__esModule", { value: true });
+            var Auth1 = /** @class */ (function () {
+                function Auth1() {
+                }
+                Auth1.loadExternalResources = function (resourcesToLoad, storageStrategy, options) {
+                    return new Promise(function (resolve) {
+                        Auth1.storageStrategy = storageStrategy;
+                        // set all resources to Auth API V1
+                        resourcesToLoad = resourcesToLoad.map(function (resource) {
+                            resource.authAPIVersion = 1;
+                            resource.options = options;
+                            return resource;
+                        });
+                        manifesto.Utils.loadExternalResourcesAuth1(resourcesToLoad, Auth1.openContentProviderInteraction, Auth1.openTokenService, Auth1.getStoredAccessToken, Auth1.userInteractedWithContentProvider, Auth1.getContentProviderInteraction, Auth1.handleMovedTemporarily, Auth1.showOutOfOptionsMessages).then(function (r) {
+                            resolve(r);
+                        })['catch'](function (error) {
+                            switch (error.name) {
+                                case manifesto.StatusCodes.AUTHORIZATION_FAILED.toString():
+                                    $.publish(BaseEvents_1.BaseEvents.LOGIN_FAILED);
+                                    break;
+                                case manifesto.StatusCodes.FORBIDDEN.toString():
+                                    $.publish(BaseEvents_1.BaseEvents.FORBIDDEN);
+                                    break;
+                                case manifesto.StatusCodes.RESTRICTED.toString():
+                                    // do nothing
+                                    break;
+                                default:
+                                    $.publish(BaseEvents_1.BaseEvents.SHOW_MESSAGE, [error.message || error]);
+                            }
+                        });
+                    });
+                };
+                Auth1.getCookieServiceUrl = function (service) {
+                    var cookieServiceUrl = service.id + "?origin=" + Auth1.getOrigin();
+                    return cookieServiceUrl;
+                };
+                Auth1.openContentProviderInteraction = function (service) {
+                    var cookieServiceUrl = Auth1.getCookieServiceUrl(service);
+                    return window.open(cookieServiceUrl);
+                };
+                // determine the postMessage-style origin for a URL
+                Auth1.getOrigin = function (url) {
+                    var urlHolder = window.location;
+                    if (url) {
+                        urlHolder = document.createElement('a');
+                        urlHolder.href = url;
                     }
-                    else if (resource.error.status === HTTPStatusCode.FORBIDDEN) {
-                        var error = new Error();
-                        error.message = "Forbidden";
-                        error.name = manifesto.StatusCodes.FORBIDDEN.toString();
-                        reject(error);
-                    }
-                    else {
-                        reject(resource.error.statusText);
-                    }
-                }
-            });
-        };
-        Auth09.handleDegraded = function (resource) {
-            var informationArgs = new InformationArgs_1.InformationArgs(InformationType_1.InformationType.DEGRADED_RESOURCE, resource);
-            $.publish(BaseEvents_1.BaseEvents.SHOW_INFORMATION, [informationArgs]);
-        };
-        return Auth09;
-    }());
-    exports.Auth09 = Auth09;
-});
-//# sourceMappingURL=Auth09.js.map
-define('modules/uv-shared-module/Utils',["require", "exports"], function (require, exports) {
-    "use strict";
-    Object.defineProperty(exports, "__esModule", { value: true });
-    var UVUtils = /** @class */ (function () {
-        function UVUtils() {
-        }
-        UVUtils.sanitize = function (html) {
-            var elem = document.createElement('div');
-            var $elem = $(elem);
-            $elem.html(html);
-            var s = new Sanitize({
-                elements: ['a', 'b', 'br', 'img', 'p', 'i', 'span'],
-                attributes: {
-                    a: ['href'],
-                    img: ['src', 'alt']
-                },
-                protocols: {
-                    a: { href: ['http', 'https'] }
-                }
-            });
-            $elem.html(s.clean_node(elem));
-            return $elem.html();
-        };
-        UVUtils.isValidUrl = function (value) {
-            var a = document.createElement('a');
-            a.href = value;
-            return (!!a.host && a.host !== window.location.host);
-        };
-        return UVUtils;
-    }());
-    exports.UVUtils = UVUtils;
-});
-//# sourceMappingURL=Utils.js.map
-define('modules/uv-shared-module/Auth1',["require", "exports", "./BaseEvents", "./Utils", "./InformationArgs", "./InformationType"], function (require, exports, BaseEvents_1, Utils_1, InformationArgs_1, InformationType_1) {
-    "use strict";
-    Object.defineProperty(exports, "__esModule", { value: true });
-    var Auth1 = /** @class */ (function () {
-        function Auth1() {
-        }
-        Auth1.loadExternalResources = function (resourcesToLoad, storageStrategy, options) {
-            return new Promise(function (resolve) {
-                Auth1.storageStrategy = storageStrategy;
-                // set all resources to Auth API V1
-                resourcesToLoad = resourcesToLoad.map(function (resource) {
-                    resource.authAPIVersion = 1;
-                    resource.options = options;
-                    return resource;
-                });
-                manifesto.Utils.loadExternalResourcesAuth1(resourcesToLoad, Auth1.openContentProviderInteraction, Auth1.openTokenService, Auth1.getStoredAccessToken, Auth1.userInteractedWithContentProvider, Auth1.getContentProviderInteraction, Auth1.handleMovedTemporarily, Auth1.showOutOfOptionsMessages).then(function (r) {
-                    resolve(r);
-                })['catch'](function (error) {
-                    switch (error.name) {
-                        case manifesto.StatusCodes.AUTHORIZATION_FAILED.toString():
-                            $.publish(BaseEvents_1.BaseEvents.LOGIN_FAILED);
-                            break;
-                        case manifesto.StatusCodes.FORBIDDEN.toString():
-                            $.publish(BaseEvents_1.BaseEvents.FORBIDDEN);
-                            break;
-                        case manifesto.StatusCodes.RESTRICTED.toString():
-                            // do nothing
-                            break;
-                        default:
-                            $.publish(BaseEvents_1.BaseEvents.SHOW_MESSAGE, [error.message || error]);
-                    }
-                });
-            });
-        };
-        Auth1.getCookieServiceUrl = function (service) {
-            var cookieServiceUrl = service.id + "?origin=" + Auth1.getOrigin();
-            return cookieServiceUrl;
-        };
-        Auth1.openContentProviderInteraction = function (service) {
-            var cookieServiceUrl = Auth1.getCookieServiceUrl(service);
-            return window.open(cookieServiceUrl);
-        };
-        // determine the postMessage-style origin for a URL
-        Auth1.getOrigin = function (url) {
-            var urlHolder = window.location;
-            if (url) {
-                urlHolder = document.createElement('a');
-                urlHolder.href = url;
-            }
-            return urlHolder.protocol + "//" + urlHolder.hostname + (urlHolder.port ? ':' + urlHolder.port : '');
-        };
-        Auth1.userInteractedWithContentProvider = function (contentProviderWindow) {
-            return new Promise(function (resolve) {
-                // What happens here is forever a mystery to a client application.
-                // It can but wait.
-                var poll = window.setInterval(function () {
-                    if (contentProviderWindow.closed) {
-                        window.clearInterval(poll);
-                        resolve(true);
-                    }
-                }, 500);
-            });
-        };
-        Auth1.handleMovedTemporarily = function (resource) {
-            return new Promise(function (resolve) {
-                Auth1.showDegradedMessage(resource);
-                resource.isResponseHandled = true;
-                resolve();
-            });
-        };
-        Auth1.showDegradedMessage = function (resource) {
-            var informationArgs = new InformationArgs_1.InformationArgs(InformationType_1.InformationType.DEGRADED_RESOURCE, resource);
-            $.publish(BaseEvents_1.BaseEvents.SHOW_INFORMATION, [informationArgs]);
-        };
-        Auth1.storeAccessToken = function (resource, token) {
-            return new Promise(function (resolve, reject) {
-                if (resource.tokenService) {
-                    Utils.Storage.set(resource.tokenService.id, token, token.expiresIn, new Utils.StorageType(Auth1.storageStrategy));
-                    resolve();
-                }
-                else {
-                    reject('Token service not found');
-                }
-            });
-        };
-        Auth1.getStoredAccessToken = function (resource) {
-            return new Promise(function (resolve, reject) {
-                var foundItems = [];
-                var item = null;
-                // try to match on the tokenService, if the resource has one:
-                if (resource.tokenService) {
-                    item = Utils.Storage.get(resource.tokenService.id, new Utils.StorageType(Auth1.storageStrategy));
-                }
-                if (item) {
-                    foundItems.push(item);
-                }
-                else {
-                    // find an access token for the domain
-                    var domain = Utils.Urls.getUrlParts(resource.dataUri).hostname;
-                    var items = Utils.Storage.getItems(new Utils.StorageType(Auth1.storageStrategy));
-                    for (var i = 0; i < items.length; i++) {
-                        item = items[i];
-                        if (item.key.includes(domain)) {
+                    return urlHolder.protocol + "//" + urlHolder.hostname + (urlHolder.port ? ':' + urlHolder.port : '');
+                };
+                Auth1.userInteractedWithContentProvider = function (contentProviderWindow) {
+                    return new Promise(function (resolve) {
+                        // What happens here is forever a mystery to a client application.
+                        // It can but wait.
+                        var poll = window.setInterval(function () {
+                            if (contentProviderWindow.closed) {
+                                window.clearInterval(poll);
+                                resolve(true);
+                            }
+                        }, 500);
+                    });
+                };
+                Auth1.handleMovedTemporarily = function (resource) {
+                    return new Promise(function (resolve) {
+                        Auth1.showDegradedMessage(resource);
+                        resource.isResponseHandled = true;
+                        resolve();
+                    });
+                };
+                Auth1.showDegradedMessage = function (resource) {
+                    var informationArgs = new InformationArgs_1.InformationArgs(InformationType_1.InformationType.DEGRADED_RESOURCE, resource);
+                    $.publish(BaseEvents_1.BaseEvents.SHOW_INFORMATION, [informationArgs]);
+                };
+                Auth1.storeAccessToken = function (resource, token) {
+                    return new Promise(function (resolve, reject) {
+                        if (resource.tokenService) {
+                            Utils.Storage.set(resource.tokenService.id, token, token.expiresIn, new Utils.StorageType(Auth1.storageStrategy));
+                            resolve();
+                        }
+                        else {
+                            reject('Token service not found');
+                        }
+                    });
+                };
+                Auth1.getStoredAccessToken = function (resource) {
+                    return new Promise(function (resolve, reject) {
+                        var foundItems = [];
+                        var item = null;
+                        // try to match on the tokenService, if the resource has one:
+                        if (resource.tokenService) {
+                            item = Utils.Storage.get(resource.tokenService.id, new Utils.StorageType(Auth1.storageStrategy));
+                        }
+                        if (item) {
                             foundItems.push(item);
                         }
-                    }
-                }
-                // sort by expiresAt, earliest to most recent.
-                foundItems = foundItems.sort(function (a, b) {
-                    return a.expiresAt - b.expiresAt;
-                });
-                var foundToken = null;
-                if (foundItems.length) {
-                    foundToken = foundItems[foundItems.length - 1].value;
-                }
-                resolve(foundToken);
-            });
-        };
-        Auth1.getContentProviderInteraction = function (resource, service) {
-            return new Promise(function (resolve) {
-                // if the info bar has already been shown for degraded logins
-                if (resource.isResponseHandled && !resource.authHoldingPage) {
-                    Auth1.showDegradedMessage(resource);
-                    resolve(null);
-                }
-                else if (resource.authHoldingPage) {
-                    // redirect holding page
-                    resource.authHoldingPage.location.href = Auth1.getCookieServiceUrl(service);
-                    resolve(resource.authHoldingPage);
-                }
-                else {
-                    $.publish(BaseEvents_1.BaseEvents.SHOW_AUTH_DIALOGUE, [{
-                            service: service,
-                            closeCallback: function () {
-                                resolve(null);
-                            },
-                            confirmCallback: function () {
-                                var win = Auth1.openContentProviderInteraction(service);
-                                resolve(win);
-                            },
-                            cancelCallback: function () {
-                                resolve(null);
+                        else {
+                            // find an access token for the domain
+                            var domain = Utils.Urls.getUrlParts(resource.dataUri).hostname;
+                            var items = Utils.Storage.getItems(new Utils.StorageType(Auth1.storageStrategy));
+                            for (var i = 0; i < items.length; i++) {
+                                item = items[i];
+                                if (item.key.includes(domain)) {
+                                    foundItems.push(item);
+                                }
                             }
-                        }]);
-                }
-            });
-        };
-        Auth1.openTokenService = function (resource, tokenService) {
-            // use a Promise across a postMessage call. Discuss...
-            return new Promise(function (resolve, reject) {
-                // if necessary, the client can decide not to trust this origin
-                var serviceOrigin = Auth1.getOrigin(tokenService.id);
-                var messageId = new Date().getTime();
-                Auth1.messages[messageId] = {
-                    "resolve": resolve,
-                    "reject": reject,
-                    "serviceOrigin": serviceOrigin,
-                    "resource": resource
-                };
-                window.addEventListener("message", Auth1.receiveToken, false);
-                var tokenUrl = tokenService.id + "?messageId=" + messageId + "&origin=" + Auth1.getOrigin();
-                // load the access token service url in the #commsFrame iframe.
-                // when the message event listener (Auth1.receiveToken) receives a message from the iframe
-                // it looks in Auth1.messages to find a corresponding message id with the same origin.
-                // if found, it stores the returned access token, resolves and deletes the message.
-                // resolving the message resolves the openTokenService promise.
-                $('#commsFrame').prop('src', tokenUrl);
-                // reject any unhandled messages after a configurable timeout
-                var postMessageTimeout = 5000;
-                setTimeout(function () {
-                    if (Auth1.messages[messageId]) {
-                        Auth1.messages[messageId].reject("Message unhandled after " + postMessageTimeout + "ms, rejecting");
-                        delete Auth1.messages[messageId];
-                    }
-                }, postMessageTimeout);
-            });
-        };
-        Auth1.receiveToken = function (event) {
-            if (event.data.hasOwnProperty("messageId")) {
-                var message_1 = Auth1.messages[event.data.messageId];
-                if (message_1 && event.origin == message_1.serviceOrigin) {
-                    // Any message with a messageId is a success
-                    Auth1.storeAccessToken(message_1.resource, event.data).then(function () {
-                        message_1.resolve(event.data); // resolves openTokenService with the token
-                        delete Auth1.messages[event.data.messageId];
-                        return;
+                        }
+                        // sort by expiresAt, earliest to most recent.
+                        foundItems = foundItems.sort(function (a, b) {
+                            return a.expiresAt - b.expiresAt;
+                        });
+                        var foundToken = null;
+                        if (foundItems.length) {
+                            foundToken = foundItems[foundItems.length - 1].value;
+                        }
+                        resolve(foundToken);
                     });
+                };
+                Auth1.getContentProviderInteraction = function (resource, service) {
+                    return new Promise(function (resolve) {
+                        // if the info bar has already been shown for degraded logins
+                        if (resource.isResponseHandled && !resource.authHoldingPage) {
+                            Auth1.showDegradedMessage(resource);
+                            resolve(null);
+                        }
+                        else if (resource.authHoldingPage) {
+                            // redirect holding page
+                            resource.authHoldingPage.location.href = Auth1.getCookieServiceUrl(service);
+                            resolve(resource.authHoldingPage);
+                        }
+                        else {
+                            $.publish(BaseEvents_1.BaseEvents.SHOW_AUTH_DIALOGUE, [{
+                                    service: service,
+                                    closeCallback: function () {
+                                        resolve(null);
+                                    },
+                                    confirmCallback: function () {
+                                        var win = Auth1.openContentProviderInteraction(service);
+                                        resolve(win);
+                                    },
+                                    cancelCallback: function () {
+                                        resolve(null);
+                                    }
+                                }]);
+                        }
+                    });
+                };
+                Auth1.openTokenService = function (resource, tokenService) {
+                    // use a Promise across a postMessage call. Discuss...
+                    return new Promise(function (resolve, reject) {
+                        // if necessary, the client can decide not to trust this origin
+                        var serviceOrigin = Auth1.getOrigin(tokenService.id);
+                        var messageId = new Date().getTime();
+                        Auth1.messages[messageId] = {
+                            "resolve": resolve,
+                            "reject": reject,
+                            "serviceOrigin": serviceOrigin,
+                            "resource": resource
+                        };
+                        window.addEventListener("message", Auth1.receiveToken, false);
+                        var tokenUrl = tokenService.id + "?messageId=" + messageId + "&origin=" + Auth1.getOrigin();
+                        // load the access token service url in the #commsFrame iframe.
+                        // when the message event listener (Auth1.receiveToken) receives a message from the iframe
+                        // it looks in Auth1.messages to find a corresponding message id with the same origin.
+                        // if found, it stores the returned access token, resolves and deletes the message.
+                        // resolving the message resolves the openTokenService promise.
+                        $('#commsFrame').prop('src', tokenUrl);
+                        // reject any unhandled messages after a configurable timeout
+                        var postMessageTimeout = 5000;
+                        setTimeout(function () {
+                            if (Auth1.messages[messageId]) {
+                                Auth1.messages[messageId].reject("Message unhandled after " + postMessageTimeout + "ms, rejecting");
+                                delete Auth1.messages[messageId];
+                            }
+                        }, postMessageTimeout);
+                    });
+                };
+                Auth1.receiveToken = function (event) {
+                    if (event.data.hasOwnProperty("messageId")) {
+                        var message_1 = Auth1.messages[event.data.messageId];
+                        if (message_1 && event.origin == message_1.serviceOrigin) {
+                            // Any message with a messageId is a success
+                            Auth1.storeAccessToken(message_1.resource, event.data).then(function () {
+                                message_1.resolve(event.data); // resolves openTokenService with the token
+                                delete Auth1.messages[event.data.messageId];
+                                return;
+                            });
+                        }
+                    }
+                };
+                Auth1.showOutOfOptionsMessages = function (service) {
+                    var errorMessage = "";
+                    if (service.getFailureHeader()) {
+                        errorMessage += '<p>' + service.getFailureHeader() + '</p>';
+                    }
+                    if (service.getFailureDescription()) {
+                        errorMessage += service.getFailureDescription();
+                    }
+                    $.publish(BaseEvents_1.BaseEvents.SHOW_MESSAGE, [Utils_1.UVUtils.sanitize(errorMessage)]);
+                };
+                Auth1.messages = {};
+                return Auth1;
+            }());
+            exports.Auth1 = Auth1;
+        });
+        //# sourceMappingURL=Auth1.js.map
+        define('modules/uv-shared-module/StringValue',["require", "exports"], function (require, exports) {
+            "use strict";
+            Object.defineProperty(exports, "__esModule", { value: true });
+            var StringValue = /** @class */ (function () {
+                function StringValue(value) {
+                    this.value = "";
+                    if (value) {
+                        this.value = value.toLowerCase();
+                    }
                 }
-            }
-        };
-        Auth1.showOutOfOptionsMessages = function (service) {
-            var errorMessage = "";
-            if (service.getFailureHeader()) {
-                errorMessage += '<p>' + service.getFailureHeader() + '</p>';
-            }
-            if (service.getFailureDescription()) {
-                errorMessage += service.getFailureDescription();
-            }
-            $.publish(BaseEvents_1.BaseEvents.SHOW_MESSAGE, [Utils_1.UVUtils.sanitize(errorMessage)]);
-        };
-        Auth1.messages = {};
-        return Auth1;
-    }());
-    exports.Auth1 = Auth1;
-});
-//# sourceMappingURL=Auth1.js.map
-define('modules/uv-shared-module/StringValue',["require", "exports"], function (require, exports) {
-    "use strict";
-    Object.defineProperty(exports, "__esModule", { value: true });
-    var StringValue = /** @class */ (function () {
-        function StringValue(value) {
-            this.value = "";
-            if (value) {
-                this.value = value.toLowerCase();
-            }
-        }
-        StringValue.prototype.toString = function () {
-            return this.value;
-        };
-        return StringValue;
-    }());
-    exports.StringValue = StringValue;
-});
-//# sourceMappingURL=StringValue.js.map
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = Object.setPrototypeOf ||
-        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
-    return function (d, b) {
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
-define('modules/uv-shared-module/MetricType',["require", "exports", "./StringValue"], function (require, exports, StringValue_1) {
-    "use strict";
-    Object.defineProperty(exports, "__esModule", { value: true });
-    var MetricType = /** @class */ (function (_super) {
-        __extends(MetricType, _super);
-        function MetricType() {
-            return _super !== null && _super.apply(this, arguments) || this;
-        }
-        MetricType.DESKTOP = new MetricType("desktop");
-        MetricType.MOBILELANDSCAPE = new MetricType("mobilelandscape");
-        MetricType.MOBILEPORTRAIT = new MetricType("mobileportrait");
-        MetricType.NONE = new MetricType("none");
-        MetricType.WATCH = new MetricType("watch");
-        return MetricType;
-    }(StringValue_1.StringValue));
-    exports.MetricType = MetricType;
-});
-//# sourceMappingURL=MetricType.js.map
-define('modules/uv-shared-module/Panel',["require", "exports"], function (require, exports) {
-    "use strict";
-    Object.defineProperty(exports, "__esModule", { value: true });
-    var Panel = /** @class */ (function () {
-        function Panel($element, fitToParentWidth, fitToParentHeight) {
-            this.isResized = false;
-            this.$element = $element;
-            this.fitToParentWidth = fitToParentWidth || false;
-            this.fitToParentHeight = fitToParentHeight || false;
-            this.create();
-        }
-        Panel.prototype.create = function () {
-        };
-        Panel.prototype.resize = function () {
-            var $parent = this.$element.parent();
-            if (this.fitToParentWidth) {
-                this.$element.width($parent.width());
-            }
-            if (this.fitToParentHeight) {
-                this.$element.height($parent.height());
-            }
-            this.isResized = true;
-        };
-        return Panel;
-    }());
-    exports.Panel = Panel;
-});
-//# sourceMappingURL=Panel.js.map
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = Object.setPrototypeOf ||
-        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
-    return function (d, b) {
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
-define('modules/uv-shared-module/BaseView',["require", "exports", "./Panel"], function (require, exports, Panel_1) {
-    "use strict";
-    Object.defineProperty(exports, "__esModule", { value: true });
-    var BaseView = /** @class */ (function (_super) {
-        __extends(BaseView, _super);
-        function BaseView($element, fitToParentWidth, fitToParentHeight) {
-            return _super.call(this, $element, fitToParentWidth, fitToParentHeight) || this;
-        }
-        BaseView.prototype.create = function () {
-        };
-        BaseView.prototype.init = function () {
-        };
-        BaseView.prototype.setConfig = function (moduleName) {
-            if (!this.modules) {
-                this.modules = [];
-            }
-            this.modules.push(moduleName);
-        };
-        BaseView.prototype.resize = function () {
-            _super.prototype.resize.call(this);
-        };
-        return BaseView;
-    }(Panel_1.Panel));
-    exports.BaseView = BaseView;
-});
-//# sourceMappingURL=BaseView.js.map
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = Object.setPrototypeOf ||
-        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
-    return function (d, b) {
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
-define('modules/uv-shared-module/Shell',["require", "exports", "./BaseView"], function (require, exports, BaseView_1) {
-    "use strict";
-    Object.defineProperty(exports, "__esModule", { value: true });
-    var Shell = /** @class */ (function (_super) {
-        __extends(Shell, _super);
-        function Shell($element) {
-            var _this = this;
-            Shell.$element = $element;
-            _this = _super.call(this, Shell.$element, true, true) || this;
-            return _this;
-        }
-        Shell.prototype.create = function () {
-            _super.prototype.create.call(this);
-        };
-        Shell.prototype.resize = function () {
-        };
-        return Shell;
-    }(BaseView_1.BaseView));
-    exports.Shell = Shell;
-});
+                StringValue.prototype.toString = function () {
+                    return this.value;
+                };
+                return StringValue;
+            }());
+            exports.StringValue = StringValue;
+        });
+        //# sourceMappingURL=StringValue.js.map
+        var __extends = (this && this.__extends) || (function () {
+            var extendStatics = Object.setPrototypeOf ||
+                ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+                function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+            return function (d, b) {
+                extendStatics(d, b);
+                function __() { this.constructor = d; }
+                d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+            };
+        })();
+        define('modules/uv-shared-module/MetricType',["require", "exports", "./StringValue"], function (require, exports, StringValue_1) {
+            "use strict";
+            Object.defineProperty(exports, "__esModule", { value: true });
+            var MetricType = /** @class */ (function (_super) {
+                __extends(MetricType, _super);
+                function MetricType() {
+                    return _super !== null && _super.apply(this, arguments) || this;
+                }
+                MetricType.DESKTOP = new MetricType("desktop");
+                MetricType.MOBILELANDSCAPE = new MetricType("mobilelandscape");
+                MetricType.MOBILEPORTRAIT = new MetricType("mobileportrait");
+                MetricType.NONE = new MetricType("none");
+                MetricType.WATCH = new MetricType("watch");
+                return MetricType;
+            }(StringValue_1.StringValue));
+            exports.MetricType = MetricType;
+        });
+        //# sourceMappingURL=MetricType.js.map
+        define('modules/uv-shared-module/Panel',["require", "exports"], function (require, exports) {
+            "use strict";
+            Object.defineProperty(exports, "__esModule", { value: true });
+            var Panel = /** @class */ (function () {
+                function Panel($element, fitToParentWidth, fitToParentHeight) {
+                    this.isResized = false;
+                    this.$element = $element;
+                    this.fitToParentWidth = fitToParentWidth || false;
+                    this.fitToParentHeight = fitToParentHeight || false;
+                    this.create();
+                }
+                Panel.prototype.create = function () {
+                };
+                Panel.prototype.resize = function () {
+                    var $parent = this.$element.parent();
+                    if (this.fitToParentWidth) {
+                        this.$element.width($parent.width());
+                    }
+                    if (this.fitToParentHeight) {
+                        this.$element.height($parent.height());
+                    }
+                    this.isResized = true;
+                };
+                return Panel;
+            }());
+            exports.Panel = Panel;
+        });
+        //# sourceMappingURL=Panel.js.map
+        var __extends = (this && this.__extends) || (function () {
+            var extendStatics = Object.setPrototypeOf ||
+                ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+                function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+            return function (d, b) {
+                extendStatics(d, b);
+                function __() { this.constructor = d; }
+                d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+            };
+        })();
+        define('modules/uv-shared-module/BaseView',["require", "exports", "./Panel"], function (require, exports, Panel_1) {
+            "use strict";
+            Object.defineProperty(exports, "__esModule", { value: true });
+            var BaseView = /** @class */ (function (_super) {
+                __extends(BaseView, _super);
+                function BaseView($element, fitToParentWidth, fitToParentHeight) {
+                    return _super.call(this, $element, fitToParentWidth, fitToParentHeight) || this;
+                }
+                BaseView.prototype.create = function () {
+                };
+                BaseView.prototype.init = function () {
+                };
+                BaseView.prototype.setConfig = function (moduleName) {
+                    if (!this.modules) {
+                        this.modules = [];
+                    }
+                    this.modules.push(moduleName);
+                };
+                BaseView.prototype.resize = function () {
+                    _super.prototype.resize.call(this);
+                };
+                return BaseView;
+            }(Panel_1.Panel));
+            exports.BaseView = BaseView;
+        });
+        //# sourceMappingURL=BaseView.js.map
+        var __extends = (this && this.__extends) || (function () {
+            var extendStatics = Object.setPrototypeOf ||
+                ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+                function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+            return function (d, b) {
+                extendStatics(d, b);
+                function __() { this.constructor = d; }
+                d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+            };
+        })();
+
 //# sourceMappingURL=Shell.js.map
-define('modules/uv-shared-module/BaseExtension',["require", "exports", "./Auth09", "./Auth1", "./BaseEvents", "../../modules/uv-shared-module/MetricType", "./Shell", "./Utils"], function (require, exports, Auth09_1, Auth1_1, BaseEvents_1, MetricType_1, Shell_1, Utils_1) {
+define('modules/uv-shared-module/BaseExtension',["require", "exports"], function (require, exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     var BaseExtension = /** @class */ (function () {
         function BaseExtension() {
-            this.isCreated = false;
-            this.isLoggedIn = false;
-            this.metric = MetricType_1.MetricType.NONE;
-            this.metrics = [];
-            this.shifted = false;
-            this.tabbing = false;
-            // auth
+
         }
         BaseExtension.prototype.create = function () {
-            var _this = this;
-            this.$element = $(this.component.options.target);
-            this.$element.data("component", this.component);
-            // create shell and shared views.
-            this.shell = new Shell_1.Shell(this.$element);
-            // dependencies
-            this.getDependencies(function (deps) {
-                _this.loadDependencies(deps);
-            });
-        };
-        BaseExtension.prototype.createModules = function () {
-        };
-        BaseExtension.prototype.modulesCreated = function () {
-        };
-        BaseExtension.prototype.getDependencies = function (cb) {
-            var that = this;
             requirejs(['./uv/lib/uv-virtex-extension-dependencies'], function (deps) {
-                var baseUri = that.data.root + '/lib/';
-                // for each dependency, prepend baseUri unless it starts with a ! which indicates to ignore it.
-                // check for a requirejs.config that sets a specific path, such as the PDF extension
-                if (deps.sync) {
-                    for (var i = 0; i < deps.sync.length; i++) {
-                        var dep = deps.sync[i];
-                        if (!dep.startsWith('!')) {
-                            deps.sync[i] = baseUri + dep;
-                        }
-                    }
-                }
-                if (deps.async) {
-                    for (var i = 0; i < deps.async.length; i++) {
-                        var dep = deps.async[i];
-                        if (!dep.startsWith('!')) {
-                            deps.async[i] = baseUri + dep;
-                        }
-                    }
-                }
-                cb(deps);
+                console.log(deps);
             });
-        };
-        BaseExtension.prototype.loadDependencies = function (deps) {
-            return;
-            // const that = this;
-            // if (!deps) {
-            //     that.dependenciesLoaded();
-            // } else if (deps.sync) {
-            //     // load each sync script.
-            //     // necessary for cases like this: https://github.com/mrdoob/three.js/issues/9602
-            //     // then load the async scripts
-            //     SynchronousRequire.load(deps.sync, that.dependencyLoaded).then(() => {
-            //         if (deps.async) {
-            //             requirejs(deps.async, function() {
-            //                 that.dependenciesLoaded(arguments);
-            //             });
-            //         } else {
-            //             that.dependenciesLoaded();
-            //         }
-            //     });
-            // } else if (deps.async) {
-            //     requirejs(deps.async, function() {
-            //         that.dependenciesLoaded(arguments);
-            //     });
-            // } else {
-            //     that.dependenciesLoaded();
-            // }
-        };
-        BaseExtension.prototype.dependencyLoaded = function (index, dep) {
-        };
-        BaseExtension.prototype.dependenciesLoaded = function () {
-            var _this = this;
-            var args = [];
-            for (var _i = 0; _i < arguments.length; _i++) {
-                args[_i] = arguments[_i];
-            }
-            this.createModules();
-            this.modulesCreated();
-            //$.publish(BaseEvents.RESIZE); // initial sizing
-            setTimeout(function () {
-                _this.update();
-                //$.publish(BaseEvents.CREATED);
-                _this._setDefaultFocus();
-            }, 1);
-        };
-        BaseExtension.prototype.update = function () {
-        };
-        BaseExtension.prototype._setDefaultFocus = function () {
-            var _this = this;
-            setTimeout(function () {
-                if (_this.data.config.options.allowStealFocus) {
-                    $('[tabindex=0]').focus();
-                }
-            }, 1);
-        };
-        BaseExtension.prototype.width = function () {
-            return this.$element.width();
-        };
-        BaseExtension.prototype.height = function () {
-            return this.$element.height();
-        };
-        BaseExtension.prototype.exitFullScreen = function () {
-            $.publish(BaseEvents_1.BaseEvents.EXIT_FULLSCREEN);
-        };
-        BaseExtension.prototype.fire = function (name) {
-            var args = [];
-            for (var _i = 1; _i < arguments.length; _i++) {
-                args[_i - 1] = arguments[_i];
-            }
-            this.component.fire(name, arguments[1]);
-        };
-        BaseExtension.prototype.redirect = function (uri) {
-            this.fire(BaseEvents_1.BaseEvents.REDIRECT, uri);
-        };
-        BaseExtension.prototype.refresh = function () {
-            this.fire(BaseEvents_1.BaseEvents.REFRESH, null);
-        };
-        BaseExtension.prototype.resize = function () {
-        };
-        // re-bootstraps the application with new querystring params
-        BaseExtension.prototype.reload = function (data) {
-            $.publish(BaseEvents_1.BaseEvents.RELOAD, [data]);
-        };
-        BaseExtension.prototype.isSeeAlsoEnabled = function () {
-            return this.data.config.options.seeAlsoEnabled !== false;
-        };
-        BaseExtension.prototype.getShareUrl = function () {
-            // If not embedded on an external domain (this causes CORS errors when fetching parent url)
-            if (!this.data.embedded) {
-                // Use the current page URL with hash params
-                if (Utils.Documents.isInIFrame()) {
-                    return parent.document.location.href;
-                }
-                else {
-                    return document.location.href;
-                }
-            }
-            else {
-                // If there's a `related` property of format `text/html` in the manifest
-                if (this.helper.hasRelatedPage()) {
-                    // Use the `related` property in the URL box
-                    var related = this.helper.getRelated();
-                    if (related && related.length) {
-                        related = related[0];
-                    }
-                    return related['@id'];
-                }
-            }
-            return null;
-        };
-        BaseExtension.prototype.getIIIFShareUrl = function () {
-            return this.helper.iiifResourceUri + "?manifest=" + this.helper.iiifResourceUri;
-        };
-        BaseExtension.prototype.addTimestamp = function (uri) {
-            return uri + "?t=" + Utils.Dates.getTimeStamp();
-        };
-        BaseExtension.prototype.getDomain = function () {
-            var parts = Utils.Urls.getUrlParts(this.helper.iiifResourceUri);
-            return parts.host;
-        };
-        BaseExtension.prototype.getAppUri = function () {
-            var parts = Utils.Urls.getUrlParts(document.location.href);
-            var origin = window.location.protocol + '//' + window.location.hostname + (window.location.port ? ':' + window.location.port : '');
-            var pathname = parts.pathname;
-            if (!pathname.startsWith('/')) {
-                pathname = '/' + pathname;
-            }
-            pathname = pathname.substr(0, pathname.lastIndexOf('/') + 1); // remove the file name
-            var appUri = origin + pathname;
-            var root = '';
-            if (!Utils.Documents.isInIFrame()) {
-                root = this.data.root || '';
-                if (root.startsWith('./')) {
-                    root = root.substr(2);
-                }
-                if (root && !root.endsWith('/')) {
-                    root += '/';
-                }
-            }
-            // if root is a URL, use that instead of appUri.
-            if (Utils_1.UVUtils.isValidUrl(root)) {
-                return root + 'uv.html';
-            }
-            return appUri + root + 'uv.html';
-        };
-        BaseExtension.prototype.getSettings = function () {
-            if (Utils.Bools.getBool(this.data.config.options.saveUserSettings, false)) {
-                var settings = Utils.Storage.get("uv.settings", Utils.StorageType.local);
-                if (settings) {
-                    return $.extend(this.data.config.options, settings.value);
-                }
-            }
-            return this.data.config.options;
-        };
-        BaseExtension.prototype.updateSettings = function (settings) {
-            if (Utils.Bools.getBool(this.data.config.options.saveUserSettings, false)) {
-                var storedSettings = Utils.Storage.get("uv.settings", Utils.StorageType.local);
-                if (storedSettings) {
-                    settings = $.extend(storedSettings.value, settings);
-                }
-                // store for ten years
-                Utils.Storage.set("uv.settings", settings, 315360000, Utils.StorageType.local);
-            }
-            this.data.config.options = $.extend(this.data.config.options, settings);
-        };
-        BaseExtension.prototype.getLocale = function () {
-            return this.helper.options.locale;
-        };
-        BaseExtension.prototype.getSharePreview = function () {
-            var title = this.helper.getLabel();
-            // todo: use getThumb (when implemented)
-            var canvas = this.helper.getCurrentCanvas();
-            var thumbnail = canvas.getProperty('thumbnail');
-            if (!thumbnail || !(typeof (thumbnail) === 'string')) {
-                thumbnail = canvas.getCanonicalImageUri(this.data.config.options.bookmarkThumbWidth);
-            }
-            return {
-                title: title,
-                image: thumbnail
-            };
-        };
-        BaseExtension.prototype.getPagedIndices = function (canvasIndex) {
-            if (canvasIndex === void 0) { canvasIndex = this.helper.canvasIndex; }
-            return [canvasIndex];
-        };
-        BaseExtension.prototype.getCurrentCanvases = function () {
-            var indices = this.getPagedIndices(this.helper.canvasIndex);
-            var canvases = [];
-            for (var i = 0; i < indices.length; i++) {
-                var index = indices[i];
-                var canvas = this.helper.getCanvasByIndex(index);
-                canvases.push(canvas);
-            }
-            return canvases;
-        };
-        BaseExtension.prototype.getCanvasLabels = function (label) {
-            var indices = this.getPagedIndices();
-            var labels = "";
-            if (indices.length === 1) {
-                labels = label;
-            }
-            else {
-                for (var i = 1; i <= indices.length; i++) {
-                    if (labels.length)
-                        labels += ",";
-                    labels += label + " " + i;
-                }
-            }
-            return labels;
-        };
-        BaseExtension.prototype.getCurrentCanvasRange = function () {
-            //var rangePath: string = this.currentRangePath ? this.currentRangePath : '';
-            //var range: Manifesto.IRange = this.helper.getCanvasRange(this.helper.getCurrentCanvas(), rangePath);
-            var range = this.helper.getCanvasRange(this.helper.getCurrentCanvas());
-            return range;
-        };
-        // todo: move to manifold?
-        BaseExtension.prototype.getExternalResources = function (resources) {
-            var _this = this;
-            var indices = this.getPagedIndices();
-            var resourcesToLoad = [];
-            $.each(indices, function (i, index) {
-                var canvas = _this.helper.getCanvasByIndex(index);
-                var r;
-                if (!canvas.externalResource) {
-                    r = new Manifold.ExternalResource(canvas, {
-                        authApiVersion: _this.data.config.options.authAPIVersion
-                    });
-                }
-                else {
-                    r = canvas.externalResource;
-                }
-                // reload resources if passed
-                if (resources) {
-                    var found = resources.find(function (f) {
-                        return f.dataUri === r.dataUri;
-                    });
-                    if (found) {
-                        resourcesToLoad.push(found);
-                    }
-                    else {
-                        resourcesToLoad.push(r);
-                    }
-                }
-                else {
-                    resourcesToLoad.push(r);
-                }
-            });
-            var storageStrategy = this.data.config.options.tokenStorage;
-            var authAPIVersion = this.data.config.options.authAPIVersion;
-            // if using auth api v1
-            if (authAPIVersion === 1) {
-                return new Promise(function (resolve) {
-                    var options = {
-                        locale: _this.helper.options.locale
-                    };
-                    Auth1_1.Auth1.loadExternalResources(resourcesToLoad, storageStrategy, options).then(function (r) {
-                        _this.resources = r.map(function (resource) {
-                            return _this._prepareResourceData(resource);
-                        });
-                        resolve(_this.resources);
-                    });
-                });
-            }
-            else {
-                return new Promise(function (resolve) {
-                    Auth09_1.Auth09.loadExternalResources(resourcesToLoad, storageStrategy).then(function (r) {
-                        _this.resources = r.map(function (resource) {
-                            return _this._prepareResourceData(resource);
-                        });
-                        resolve(_this.resources);
-                    });
-                });
-            }
-        };
-        // copy useful properties over to the data object to be opened in center panel's openMedia method
-        // this is the info.json if there is one, which can be opened natively by openseadragon.
-        BaseExtension.prototype._prepareResourceData = function (resource) {
-            resource.data.hasServiceDescriptor = resource.hasServiceDescriptor();
-            // if the data isn't an info.json, give it the necessary viewing properties
-            if (!resource.hasServiceDescriptor()) {
-                resource.data.id = resource.dataUri;
-                resource.data.width = resource.width;
-                resource.data.height = resource.height;
-            }
-            resource.data.index = resource.index;
-            return Utils.Objects.toPlainObject(resource.data);
-        };
-        BaseExtension.prototype.getMediaFormats = function (canvas) {
-            var annotations = canvas.getContent();
-            if (annotations && annotations.length) {
-                var annotation = annotations[0];
-                return annotation.getBody();
-            }
-            else {
-                // legacy IxIF compatibility
-                var body = {
-                    id: canvas.id,
-                    type: canvas.getType(),
-                    getFormat: function () {
-                        return '';
-                    }
-                };
-                return [body];
-            }
-        };
-        BaseExtension.prototype.viewCanvas = function (canvasIndex) {
-            if (this.helper.isCanvasIndexOutOfRange(canvasIndex)) {
-                this.showMessage(this.data.config.content.canvasIndexOutOfRange);
-                return;
-            }
-            $.publish(BaseEvents_1.BaseEvents.OPEN_EXTERNAL_RESOURCE);
-        };
-        BaseExtension.prototype.showMessage = function (message, acceptCallback, buttonText, allowClose) {
-            this.closeActiveDialogue();
-            $.publish(BaseEvents_1.BaseEvents.SHOW_GENERIC_DIALOGUE, [
-                {
-                    message: message,
-                    acceptCallback: acceptCallback,
-                    buttonText: buttonText,
-                    allowClose: allowClose
-                }
-            ]);
-        };
-        BaseExtension.prototype.closeActiveDialogue = function () {
-            $.publish(BaseEvents_1.BaseEvents.CLOSE_ACTIVE_DIALOGUE);
-        };
-        BaseExtension.prototype.isOverlayActive = function () {
-            return Shell_1.Shell.$overlays.is(':visible');
-        };
-        BaseExtension.prototype.isDesktopMetric = function () {
-            return this.metric.toString() === MetricType_1.MetricType.DESKTOP.toString();
-        };
-        // todo: use redux in manifold to get reset state
-        BaseExtension.prototype.viewManifest = function (manifest) {
-            var data = {};
-            data.iiifResourceUri = this.helper.iiifResourceUri;
-            data.collectionIndex = this.helper.getCollectionIndex(manifest) || 0;
-            data.manifestIndex = manifest.index;
-            data.sequenceIndex = 0;
-            data.canvasIndex = 0;
-            this.reload(data);
-        };
-        // todo: use redux in manifold to get reset state
-        BaseExtension.prototype.viewCollection = function (collection) {
-            var data = {};
-            data.iiifResourceUri = this.helper.iiifResourceUri;
-            data.collectionIndex = collection.index;
-            data.manifestIndex = 0;
-            data.sequenceIndex = 0;
-            data.canvasIndex = 0;
-            this.reload(data);
-        };
-        BaseExtension.prototype.isFullScreen = function () {
-            return this.component.isFullScreen;
-        };
-        BaseExtension.prototype.isHeaderPanelEnabled = function () {
-            return Utils.Bools.getBool(this.data.config.options.headerPanelEnabled, true);
-        };
-        BaseExtension.prototype.isLeftPanelEnabled = function () {
-            if (Utils.Bools.getBool(this.data.config.options.leftPanelEnabled, true)) {
-                if (this.helper.hasParentCollection()) {
-                    return true;
-                }
-                else if (this.helper.isMultiCanvas()) {
-                    if (this.helper.getViewingHint().toString() !== manifesto.ViewingHint.continuous().toString()) {
-                        return true;
-                    }
-                }
-            }
-            return false;
-        };
-        BaseExtension.prototype.isRightPanelEnabled = function () {
-            return Utils.Bools.getBool(this.data.config.options.rightPanelEnabled, true);
-        };
-        BaseExtension.prototype.isFooterPanelEnabled = function () {
-            return Utils.Bools.getBool(this.data.config.options.footerPanelEnabled, true);
-        };
-        BaseExtension.prototype.useArrowKeysToNavigate = function () {
-            return Utils.Bools.getBool(this.data.config.options.useArrowKeysToNavigate, true);
-        };
-        BaseExtension.prototype.bookmark = function () {
-            // override for each extension
-        };
-        BaseExtension.prototype.feedback = function () {
-            this.fire(BaseEvents_1.BaseEvents.FEEDBACK, this.data);
-        };
-        BaseExtension.prototype.getAlternateLocale = function () {
-            var alternateLocale = null;
-            if (this.data.locales.length > 1) {
-                alternateLocale = this.data.locales[1];
-            }
-            return alternateLocale;
-        };
-        BaseExtension.prototype.getSerializedLocales = function () {
-            return this.serializeLocales(this.data.locales);
-        };
-        BaseExtension.prototype.serializeLocales = function (locales) {
-            var serializedLocales = '';
-            for (var i = 0; i < locales.length; i++) {
-                var l = locales[i];
-                if (i > 0)
-                    serializedLocales += ',';
-                serializedLocales += l.name;
-                if (l.label) {
-                    serializedLocales += ':' + l.label;
-                }
-            }
-            return serializedLocales;
-        };
-        BaseExtension.prototype.changeLocale = function (locale) {
-            // re-order locales so the passed locale is first
-            var data = {};
-            data.locales = this.data.locales.slice(0);
-            var fromIndex = data.locales.findIndex(function (l) {
-                return l.name === locale;
-            });
-            var toIndex = 0;
-            data.locales.splice(toIndex, 0, data.locales.splice(fromIndex, 1)[0]);
-            this.reload(data);
         };
         return BaseExtension;
     }());
