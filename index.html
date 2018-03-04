@@ -6,7 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Stencil Test Harness</title>
     <script src="https://unpkg.com/manifesto.js/dist/client/manifesto.bundle.js"></script>
-    <script type="text/javascript" src="https://unpkg.com/iiif-gallery/dist/iiifgallery.js"></script>
+    <script type="text/javascript" src="https://unpkg.com/iiif-gallery@0.0.8/dist/iiifgallery.js"></script>
+    <!-- <script type="text/javascript" src="https://unpkg.com/iiif-gallery@0.0.10/dist/iiifgallery.js"></script> -->
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/es6-promise/4.1.1/es6-promise.js"></script> -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.5/require.js"></script>
 </head>
 <body>
@@ -20,7 +22,7 @@
             requirejs(['./deps'], function (deps) {
                 document.querySelector('#message').innerHTML = deps.message;
             });
-        }, 3000);
+        }, 3000); // simulate a network delay
     </script>
 
 </body>
