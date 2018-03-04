@@ -30,17 +30,15 @@
 
             $uv = $('#uv');
 
-            urlDataProvider = new UV.URLDataProvider();
-
             var data = {
                 root: './uv',
                 iiifResourceUri: 'https://sophiedixon.github.io/3d-portfolio/collection/animal_skull/index.json',
-                collectionIndex: Number(urlDataProvider.get('c', 0)),
-                manifestIndex: Number(urlDataProvider.get('m', 0)),
-                sequenceIndex: Number(urlDataProvider.get('s', 0)),
-                canvasIndex: Number(urlDataProvider.get('cv', 0)),
-                rotation: Number(urlDataProvider.get('r', 0)),
-                xywh: urlDataProvider.get('xywh', ''),
+                collectionIndex: 0,
+                manifestIndex: 0,
+                sequenceIndex: 0,
+                canvasIndex: 0,
+                rotation: 0,
+                xywh: '',
                 locales: [
                     {
                         name: 'en-GB'
@@ -48,7 +46,7 @@
                 ]
             };
 
-            uv = createUV('#uv', data, urlDataProvider);
+            uv = createUV('#uv', data);
 
         }, false);
 
