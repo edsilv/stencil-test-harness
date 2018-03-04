@@ -1,5 +1,5 @@
 define(function() {
     return {
-        message: 'deps loaded'
+        message: 'deps 2 loaded'
     };
 });
