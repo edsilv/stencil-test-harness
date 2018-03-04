@@ -15209,40 +15209,28 @@ define('modules/uv-shared-module/BaseExtension',["require", "exports", "./Auth09
         };
         BaseExtension.prototype.getDependencies = function (cb) {
             var that = this;
-            var depsUri = this.data.root + '/lib/' + this.name + '-dependencies';
-            // check if the deps are already loaded
-            var scripts = $('script[data-requiremodule]')
-                .filter(function () {
-                var attr = $(this).attr('data-requiremodule');
-                return (attr.indexOf(that.name) !== -1 && attr.indexOf('dependencies') !== -1);
+            requirejs(['./uv/lib/uv-virtex-extension-dependencies'], function (deps) {
+                var baseUri = that.data.root + '/lib/';
+                // for each dependency, prepend baseUri unless it starts with a ! which indicates to ignore it.
+                // check for a requirejs.config that sets a specific path, such as the PDF extension
+                if (deps.sync) {
+                    for (var i = 0; i < deps.sync.length; i++) {
+                        var dep = deps.sync[i];
+                        if (!dep.startsWith('!')) {
+                            deps.sync[i] = baseUri + dep;
+                        }
+                    }
+                }
+                if (deps.async) {
+                    for (var i = 0; i < deps.async.length; i++) {
+                        var dep = deps.async[i];
+                        if (!dep.startsWith('!')) {
+                            deps.async[i] = baseUri + dep;
+                        }
+                    }
+                }
+                cb(deps);
             });
-            if (!scripts.length) {
-                requirejs([depsUri], function (deps) {
-                    var baseUri = that.data.root + '/lib/';
-                    // for each dependency, prepend baseUri unless it starts with a ! which indicates to ignore it.
-                    // check for a requirejs.config that sets a specific path, such as the PDF extension
-                    if (deps.sync) {
-                        for (var i = 0; i < deps.sync.length; i++) {
-                            var dep = deps.sync[i];
-                            if (!dep.startsWith('!')) {
-                                deps.sync[i] = baseUri + dep;
-                            }
-                        }
-                    }
-                    if (deps.async) {
-                        for (var i = 0; i < deps.async.length; i++) {
-                            var dep = deps.async[i];
-                            if (!dep.startsWith('!')) {
-                                deps.async[i] = baseUri + dep;
-                            }
-                        }
-                    }
-                    cb(deps);
-                });
-            }
-            else {
-                cb(null);
-            }
         };
         BaseExtension.prototype.loadDependencies = function (deps) {
             return;
